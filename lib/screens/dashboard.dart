@@ -13,80 +13,23 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Welcome to you own dashboard"),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const UserAccountsDrawerHeader(
-              accountName: Text("John Doe"),
-              accountEmail: Text("john.doe@example.com"),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(Icons.person, color: Colors.blue),
-              ),
-            ),
-            ListTile(
-              title: const Text("Product List"),
-              onTap: () {
-                context.go('/product_list');
-              },
-            ),
-            ListTile(
-              title: const Text("Sales Record"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text("Add Products"),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Text("Manage Documents"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text("Upload Documents"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text("POS"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text("Settings"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text("Logout"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
-      body: Container(
-        child: Column(
-          children: [graph()],
-        ),
+    return const Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.dashboard, size: 80, color: Colors.blue),
+          SizedBox(height: 20),
+          Text(
+            "Welcome to Your Inventory Dashboard",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 10),
+          Text(
+            "Use the menu to navigate through the system.",
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
+        ],
       ),
     );
-  }
-
-  Widget graph() {
-    return Container();
   }
 }
