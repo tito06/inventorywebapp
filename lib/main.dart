@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:manage_inventory/routes/approutes.dart';
-import 'package:manage_inventory/screens/dashboard.dart';
-import 'package:manage_inventory/screens/login.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
