@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manage_inventory/routes/approutes.dart';
+import 'package:manage_inventory/screens/product_list.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -27,10 +30,39 @@ class _DashboardState extends State<Dashboard> {
               ),
             ),
             ListTile(
+              title: const Text("Product List"),
+              onTap: () {
+                context.go('/product_list');
+              },
+            ),
+            ListTile(
+              title: const Text("Sales Record"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
               title: const Text("Add Products"),
               onTap: () {},
             ),
-
+            ListTile(
+              title: const Text("Manage Documents"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text("Upload Documents"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text("POS"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
             ListTile(
               title: const Text("Settings"),
               onTap: () {
@@ -40,7 +72,7 @@ class _DashboardState extends State<Dashboard> {
             ListTile(
               title: const Text("Logout"),
               onTap: () {
-                Navigator.pop(context); 
+                Navigator.pop(context);
               },
             ),
           ],
@@ -55,8 +87,6 @@ class _DashboardState extends State<Dashboard> {
   }
 
   Widget graph() {
-    return Container(
-      child: Text("data"),
-    );
+    return Container();
   }
 }
