@@ -15,7 +15,7 @@ class Dashboard extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Pie Chart Card
+                  // Sales Distribution Card
                   Expanded(
                     child: Card(
                       elevation: 5,
@@ -29,7 +29,9 @@ class Dashboard extends StatelessWidget {
                             const Text(
                               'Sales Distribution',
                               style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
                             ),
                             const SizedBox(height: 16),
                             SizedBox(
@@ -74,7 +76,6 @@ class Dashboard extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 16),
-                            // Color Indicators
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -90,7 +91,7 @@ class Dashboard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 20),
-                  // Bar Chart Card
+                  // Monthly Sales Card
                   Expanded(
                     child: Card(
                       elevation: 5,
@@ -155,6 +156,79 @@ class Dashboard extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 20),
+              // Product Summary Card
+              Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Product Summary',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _buildSummaryCard('Total Products', '150'),
+                          _buildSummaryCard('Low Stock', '20'),
+                          _buildSummaryCard('Out of Stock', '5'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              // Revenue Overview Chart
+              Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Revenue Overview',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 16),
+                      SizedBox(
+                        height: 250,
+                        child: BarChart(
+                          BarChartData(
+                            gridData: FlGridData(show: false),
+                            titlesData: FlTitlesData(show: true),
+                            borderData: FlBorderData(show: false),
+                            barGroups: List.generate(12, (index) {
+                              return BarChartGroupData(
+                                x: index,
+                                barsSpace: 4,
+                                barRods: [
+                                  BarChartRodData(
+                                    y: (index + 5).toDouble(),
+                                    colors: [Colors.green.shade700],
+                                    width: 20,
+                                  ),
+                                ],
+                              );
+                            }),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -174,6 +248,27 @@ class Dashboard extends StatelessWidget {
         Text(text, style: const TextStyle(fontSize: 14)),
         const SizedBox(width: 10),
       ],
+    );
+  }
+
+  Widget _buildSummaryCard(String title, String value) {
+    return Expanded(
+      child: Card(
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Text(title, style: const TextStyle(fontSize: 14)),
+              const SizedBox(height: 8),
+              Text(value, style: const TextStyle(fontSize: 22)),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

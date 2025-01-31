@@ -46,13 +46,13 @@ class ScaffoldWithDrawer extends StatelessWidget {
             ListTile(
               title: const Text("Add Products"),
               onTap: () {
-                context.go('/add_products');
+                context.go('/add_product');
               },
             ),
             ListTile(
-              title: const Text("Manage Documents"),
+              title: const Text("Documents"),
               onTap: () {
-                context.go('/manage_documents');
+                context.go('/document_page');
               },
             ),
             ListTile(
