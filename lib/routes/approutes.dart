@@ -12,31 +12,33 @@ final GoRouter appRoutes = GoRouter(routes: [
   GoRoute(
     path: '/',
     pageBuilder: (context, State) => const NoTransitionPage(
-      child: ScaffoldWithDrawer(child: const Dashboard()),
+      child: ScaffoldWithDrawer(title: "Dashboard", child: const Dashboard()),
     ),
   ),
   GoRoute(
     path: '/product_list',
     pageBuilder: (context, State) => const NoTransitionPage(
-      child: ScaffoldWithDrawer(child: ProductList()),
+      child: ScaffoldWithDrawer(title: "Product List", child: ProductList()),
     ),
   ),
   GoRoute(
     path: '/sales_record',
     pageBuilder: (context, State) => const NoTransitionPage(
-      child: ScaffoldWithDrawer(child: SalesRecord()),
+      child: ScaffoldWithDrawer(title: "Sales Record", child: SalesRecord()),
     ),
   ),
   GoRoute(
     path: '/add_product',
     pageBuilder: (context, State) => NoTransitionPage(
-      child: ScaffoldWithDrawer(child: AddProductScreen()),
+      child:
+          ScaffoldWithDrawer(title: "Add Product", child: AddProductScreen()),
     ),
   ),
   GoRoute(
     path: '/document_page',
     pageBuilder: (context, State) => NoTransitionPage(
-      child: ScaffoldWithDrawer(child: DocumentScreen()),
+      child:
+          ScaffoldWithDrawer(title: "Manage Document", child: DocumentScreen()),
     ),
   ),
   GoRoute(

@@ -6,10 +6,6 @@ class DocumentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Documents'),
-        backgroundColor: Colors.teal,
-      ),
       body: Column(
         children: [
           Padding(

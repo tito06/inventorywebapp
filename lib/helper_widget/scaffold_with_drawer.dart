@@ -4,14 +4,16 @@ import 'package:manage_inventory/screens/dashboard.dart';
 
 class ScaffoldWithDrawer extends StatelessWidget {
   final Widget child; // The main content (screen)
+  final String title;
 
-  const ScaffoldWithDrawer({super.key, required this.child});
+  const ScaffoldWithDrawer(
+      {super.key, required this.child, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Inventory Management"),
+        title: Text(title),
       ),
       drawer: Drawer(
         child: ListView(

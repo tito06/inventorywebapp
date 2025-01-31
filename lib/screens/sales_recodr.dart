@@ -102,15 +102,6 @@ class _SalesRecordState extends State<SalesRecord> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sales Records'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: refreshData,
-          ),
-        ],
-      ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
