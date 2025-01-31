@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 class DocumentScreen extends StatelessWidget {
@@ -16,9 +17,11 @@ class DocumentScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildCard('Manage Document', Icons.folder, Colors.blue),
+                _buildCard(
+                    'Manage Document', Icons.folder, Colors.blue, context),
                 SizedBox(width: 20),
-                _buildCard('Add Document', Icons.add_circle, Colors.green),
+                _buildCard(
+                    'Add Document', Icons.add_circle, Colors.green, context),
               ],
             ),
           ),
@@ -37,10 +40,13 @@ class DocumentScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(String title, IconData icon, Color color) {
+  Widget _buildCard(
+      String title, IconData icon, Color color, BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Handle tap
+        if (title == 'Add Document') {
+          context.push('/upload_document'); // Navigate to UploadDocumentScreen
+        }
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),

@@ -6,6 +6,7 @@ import 'package:manage_inventory/screens/dashboard.dart';
 import 'package:manage_inventory/screens/document.dart';
 import 'package:manage_inventory/screens/product_list.dart';
 import 'package:manage_inventory/screens/sales_recodr.dart';
+import 'package:manage_inventory/screens/upload_document.dart';
 
 final GoRouter appRoutes = GoRouter(routes: [
   GoRoute(
@@ -36,6 +37,12 @@ final GoRouter appRoutes = GoRouter(routes: [
     path: '/document_page',
     pageBuilder: (context, State) => NoTransitionPage(
       child: ScaffoldWithDrawer(child: DocumentScreen()),
+    ),
+  ),
+  GoRoute(
+    path: '/upload_document',
+    pageBuilder: (context, State) => NoTransitionPage(
+      child: UploadDocumentScreen(),
     ),
   ),
 ]);
